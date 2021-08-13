@@ -2,7 +2,7 @@
 #define __CRY_H__
 #include <stdbool.h>
 #include <stdlib.h>
-#include "deps/log.h/log.h"
+#include "log.h"
 
 typedef struct {
   int code;
