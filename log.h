@@ -6,7 +6,7 @@
 #include <string.h>
 
 
-FILE *CRY_FD = NULL;
+FILE *CRY_TO = NULL;
 
 #ifndef LOGLEVEL
 #define LOGLEVEL 4
@@ -23,9 +23,9 @@ FILE *CRY_FD = NULL;
 #define log_debug(M, ...)
 #else
 #ifdef LOG_NOCOLORS
-  #define log_debug(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "DEBUG " M " at %s (%s:%d) \n", ##__VA_ARGS__, __func__, __FILE__, __LINE__)
+  #define log_debug(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "DEBUG " M " at %s (%s:%d) \n", ##__VA_ARGS__, __func__, __FILE__, __LINE__)
 #else
-  #define log_debug(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "\33[34mDEBUG\33[39m " M "  \33[90m at %s (%s:%d) \33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__)
+  #define log_debug(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "\33[34mDEBUG\33[39m " M "  \33[90m at %s (%s:%d) \33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__)
 #endif /* NOCOLORS */
 #endif /* NDEBUG */
 
@@ -33,13 +33,13 @@ FILE *CRY_FD = NULL;
 #define clean_errno() (errno == 0 ? "None" : strerror(errno))
 
 #ifdef LOG_NOCOLORS
-  #define log_error(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr,  "ERR   " M " at %s (%s:%d) errno:%s\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
-  #define log_warn(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "WARN  " M " at %s (%s:%d) errno:%s\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
-  #define log_info(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "INFO  " M " at %s (%s:%d)\n", ##__VA_ARGS__, __func__, __FILENAME__, __LINE__)
+  #define log_error(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr,  "ERR   " M " at %s (%s:%d) errno:%s\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
+  #define log_warn(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "WARN  " M " at %s (%s:%d) errno:%s\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
+  #define log_info(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "INFO  " M " at %s (%s:%d)\n", ##__VA_ARGS__, __func__, __FILENAME__, __LINE__)
 #else
-  #define log_error(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr,  "\33[31mERR\33[39m   " M "  \33[90m at %s (%s:%d) \33[94merrno: %s\33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
-  #define log_warn(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "\33[91mWARN\33[39m  " M "  \33[90m at %s (%s:%d) \33[94merrno: %s\33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
-  #define log_info(M, ...) fprintf(CRY_FD != NULL ? CRY_FD : stderr, "\33[32mINFO\33[39m  " M "  \33[90m at %s (%s:%d) \33[39m\n", ##__VA_ARGS__, __func__, __FILENAME__, __LINE__)
+  #define log_error(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr,  "\33[31mERR\33[39m   " M "  \33[90m at %s (%s:%d) \33[94merrno: %s\33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
+  #define log_warn(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "\33[91mWARN\33[39m  " M "  \33[90m at %s (%s:%d) \33[94merrno: %s\33[39m\n", ##__VA_ARGS__, __func__, __FILE__, __LINE__, clean_errno())
+  #define log_info(M, ...) fprintf(CRY_TO != NULL ? CRY_TO : stderr, "\33[32mINFO\33[39m  " M "  \33[90m at %s (%s:%d) \33[39m\n", ##__VA_ARGS__, __func__, __FILENAME__, __LINE__)
 #endif /* NOCOLORS */
 
 #if LOGLEVEL < 4
