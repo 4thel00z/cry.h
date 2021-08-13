@@ -17,7 +17,7 @@ I want errors and fatal errors with fancy colors.
 
 int main(){
 
-  // If you set CRY_FD to another FILE * the output get's redirected there
+  // If you set CRY_TO var to another FILE * the output get's redirected there
 
   cry_t simple_cry = cry_new(CRY_SIMPLE, "CRY_SIMPLE");
   cry_t fatal_cry = cry_fatal_new(CRY_FATAL, "CRY_FATAL", true, EX_USAGE);
