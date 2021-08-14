@@ -6,6 +6,12 @@
 
 I want errors and fatal errors with fancy colors.
 
+## Installation
+
+```
+clib install 4thel00z/cry.h
+```
+
 ## Usage
 
 ```c
