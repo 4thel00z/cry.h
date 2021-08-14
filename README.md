@@ -1,5 +1,6 @@
 # cry.h
 
+![cry-h.png](https://raw.githubusercontent.com/4thel00z/logos/master/cry-h.png)
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
@@ -13,7 +14,6 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-![cry-h.png](https://raw.githubusercontent.com/4thel00z/logos/master/cry-h.png)
 
 ## Motivation
 
